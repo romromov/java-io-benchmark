@@ -29,9 +29,12 @@ public final class TestHarness {
                 .setFilePath("1m.txt")
                 .setFileSizeInBytes(1024 * 1024 * 1024)
                 .setRepeats(2);
+        runAllTestsWith(testParams);
+    }
+
+    public static void runAllTestsWith(TestParams testParams) throws IOException {
         System.out.printf("%s\n-------------------\n", testParams);
         TestHarness testHarness = new TestHarness(testParams);
-//        testHarness.addTestable(new RandomByteBufferGenerator(FILE_NAME, FILE_SIZE_BYTES));
         testHarness.addTestable(new DirectByteBufferGenerator(testParams));
         testHarness.addTestable(new DirectByteBufferInput(testParams));
         testHarness.addTestable(new StreamsBasedGenerator(testParams));
