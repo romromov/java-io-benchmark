@@ -19,7 +19,7 @@ public final class TestHarness {
     private long minNanos;
     private long maxNanos;
     private long averageNanos;
-    private long sygma;
+    private double sygma;
     private Testable testable;
     private double sygmaPercent;
 
@@ -79,7 +79,7 @@ public final class TestHarness {
         sygma = computeSygma();
         long delta = maxNanos - minNanos;
         if (delta > 0) {
-            sygmaPercent = ((double) sygma / (double) delta) * 100.;
+            sygmaPercent = (sygma / (double) delta) * 100.;
         } else {
             sygmaPercent = 0;
         }
@@ -107,7 +107,7 @@ public final class TestHarness {
         return (long) (Math.sqrt(sum) / Math.sqrt(timesNano.length));
     }
 
-    private String formatNanos(long nanos) {
+    private String formatNanos(double nanos) {
         int mio = 1000000;
         if (nanos < mio) {
             return format("%f micros %s", nanos / 1000., getMbSfor(nanos));
@@ -116,7 +116,7 @@ public final class TestHarness {
         }
     }
 
-    private String getMbSfor(long nanos) {
+    private String getMbSfor(double nanos) {
         double perSec = 1_000_000_000. / nanos;
         double megabytes = testParams.getFileSizeInBytes() / 1024. / 1024.;
         double MbS = megabytes * perSec; // megabytes/sec
