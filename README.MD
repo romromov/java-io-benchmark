@@ -41,9 +41,9 @@ programming beliefs below.
 ## Direct byte buffer is faster than indirect?
 Figures below depict aggregated results for direct and indirect (default) byte buffers I/O. 
 As you can see, direct byte buffer almost always a little bit faster that indirect byte buffer.
-![](https://github.com/romromov/java-io-benchmark/tree/master/img/bb_write.png)
-![](https://github.com/romromov/java-io-benchmark/tree/master/img/bb_read.png)
-![](https://github.com/romromov/java-io-benchmark/tree/master/img/bb_read_write.png)
+![](./img/bb_write.png)
+![](./img/bb_read.png)
+![](./img/bb_read_write.png)
 
 It is also clear that increasing of buffer size from 1K to 8K gives speed improvement for all 3 benchmarked systems.
 
@@ -52,12 +52,12 @@ It is interesting to notice that plots for ssd2 system are heavily intertwined. 
 direct byte buffer is faster than it's counter-part, sometimes-the other way around. For 
 ssd1 and hdd1 the distinction is more clearly.
 
-![](https://github.com/romromov/java-io-benchmark/tree/master/img/hdd1_w_1k.png)
-![](https://github.com/romromov/java-io-benchmark/tree/master/img/hdd1_w_8k.png)
-![](https://github.com/romromov/java-io-benchmark/tree/master/img/ssd1_w_1k.png)
-![](https://github.com/romromov/java-io-benchmark/tree/master/img/ssd1_w_8k.png)
-![](https://github.com/romromov/java-io-benchmark/tree/master/img/ssd2_w_1k.png)
-![](https://github.com/romromov/java-io-benchmark/tree/master/img/ssd2_w_8k.png)
+![](./img/hdd1_w_1k.png)
+![](./img/hdd1_w_8k.png)
+![](./img/ssd1_w_1k.png)
+![](./img/ssd1_w_8k.png)
+![](./img/ssd2_w_1k.png)
+![](./img/ssd2_w_8k.png)
 
 ## Does direct byte buffer has additional allocation cost?
 It's believed that using direct byte buffer has additional cost comparing to indirect 
@@ -71,8 +71,8 @@ which we can conclude the following:
 - For 8K buffers, channels (direct and indirect byte buffer) are faster than streams. For 1K buffer
 we can observe the opposite sometimes.
 
-![](https://github.com/romromov/java-io-benchmark/tree/master/img/all_w.png)
-![](https://github.com/romromov/java-io-benchmark/tree/master/img/all_r.png)
+![](./img/all_w.png)
+![](./img/all_r.png)
 
 ## Memory-mapped files is the fastest approach to I/O?
 Well, memory-mapped files are tricky. Sometimes this way of writing is orders of magnitude faster than channels,
