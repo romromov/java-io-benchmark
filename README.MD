@@ -83,6 +83,15 @@ In general, reading with memory mapped files is significantly faster than other 
 For some reasons, the weakest system ssd2 has demonstrated the best memory-mapped write speed.
 It won by a far margin of 3-4.5X.
   
+## Systems under the test
+The experiments were conducted on 3 following systems:
+
+Name | Storage | CPU | OS | RAM
+-----|------------------------|----------------------------------------------------|-------------------|----
+ssd_2|Samsung SSD PM830 128GB |	Intel Core i5-2540M  @ 2.6 GHz(2 cores)	| Windows 10 Enterprise 64-bit | RAM 4GB
+ssd_1|ATA Samsung SSD 850 |	Intel Xeon E5620 @ 2.4GHz (4 cores)	| Ubuntu 64 bit | RAM 18GB
+hdd_1|ATA SEAGATE ST3500413AS |	Intel Xeon E5620 @ 2.4GHz (4 cores) | Ubuntu 64 bit |	RAM 18GB
+
 ## Summary
 What we have seen in our small survey, is that channels are faster than streams if buffer size is selected appropriately.
 Direct byte buffers are faster than indirect ones. Also we cannot confirm a common opinion that first opening of 
@@ -94,15 +103,6 @@ I would consider approaches according to the following priority:
 1. Memory-mapped files
 2. Direct ByteBuffer
 3. Indirect ByteBuffer / streams
-
-## Systems under the test
-The experiments were conducted on 3 following systems:
-
-Name | Storage | CPU | OS | RAM
------|------------------------|----------------------------------------------------|-------------------|----
-ssd_2|Samsung SSD PM830 128GB |	Intel Core i5-2540M  @ 2.6 GHz(2 cores)	| Windows 10 Enterprise 64-bit | RAM 4GB
-ssd_1|ATA Samsung SSD 850 |	Intel Xeon E5620 @ 2.4GHz (4 cores)	| Ubuntu 64 bit | RAM 18GB
-hdd_1|ATA SEAGATE ST3500413AS |	Intel Xeon E5620 @ 2.4GHz (4 cores) | Ubuntu 64 bit |	RAM 18GB
 
 ## Contributing
 You are welcome to contribute whatever you think will be helpful to fellow programmers. If you would 
